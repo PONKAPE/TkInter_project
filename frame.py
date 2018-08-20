@@ -16,4 +16,4 @@ button2.pack(side=LEFT)
 button3.pack(side=LEFT)
 button4.pack(side=BOTTOM)
 
-root.mainloop() # ilman tätä, ruutu katoaa (ei pysyvä ratkaisu)
+root.mainloop()
