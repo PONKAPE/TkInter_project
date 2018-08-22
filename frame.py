@@ -1,9 +1,5 @@
 from tkinter import * 
 
-# Create main window by creating an instance of Tk
-# Global import must be fixed. Use tkinter by name and prefix tkinter commands with module names
-# import tkinter as tk
-
 root=Tk()
 
 topFrame = Frame(root)
