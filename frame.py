@@ -1,38 +1,22 @@
-from tkinter import * 
+import tkinter as tk # Python 3
+from PIL import ImageTk, Image
 
-root=Tk()
+# Main window
+window = tk.Tk()
+window.title("NHL 94")
+window.geometry("700x400")
+window.configure(background='grey')
 
-topFrame = Frame(root)
+path = "nhl.jpg"
+
+# Tkinter-compatible photo image
+img = ImageTk.PhotoImage(Image.open(path))
+
+# Widget 
+panel = tk.Label(window, image = img)
+
 # Put widget inside a frame with .pack()
-topFrame.pack()
-
-bottomFrame = Frame(root)
-bottomFrame.pack(side=BOTTOM)
-
-button1 = Button(topFrame, text="Press here! 1")
-button2 = Button(topFrame, text="Press here! 2")
-button3 = Button(topFrame, text="Press here! 3", fg="green")
-button4 = Button(bottomFrame, text="Press here! 4", fg="grey")
-
-button1.pack(side=LEFT)
-button2.pack(side=LEFT)
-button3.pack(side=LEFT)
-button4.pack(side=BOTTOM)
+panel.pack(side = "bottom", fill = "both", expand = "yes")
 
 
-# Actions needed..
-
-def doNothing():
-    print("Okay okay, not yet")
-
-menu = Menu(root)
-root.config(menu=menu)
-
-subMenu = Menu(menu)
-menu.add_cascade(label="File", menu=subMenu) # Dropdown
-subMenu.add_command(label="New Project..", command=doNothing)
-subMenu.add_command(label="New..", command=doNothing)
-subMenu.add_separator() 
-subMenu.add_command(label="Exit", command=doNothing)
-
-root.mainloop()
+window.mainloop()
