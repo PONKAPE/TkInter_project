@@ -1,11 +1,10 @@
 ### TO-DO NHL 94 project
 
 - [ ] Make window instances
-- [ ] Remove global import
+- [x] Remove global import
 - [ ] Design application
 - [ ] Dropdown menu
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ] Buttons
+- [x] Add awesome NHL.jpg to frame
+- [ ] Add multiple frames
+- [ ] Version number
