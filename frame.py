@@ -7,6 +7,7 @@ window.title("NHL 94")
 window.geometry("700x400")
 window.configure(background='grey')
 
+# Image path
 path = "nhl.jpg"
 
 # Tkinter-compatible photo image

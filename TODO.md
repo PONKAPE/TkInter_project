@@ -1,6 +1,6 @@
 ### TO-DO NHL 94 project
 
-- [ ] Make window instances
+- [x] Make window instances
 - [x] Remove global import
 - [ ] Design application
 - [ ] Dropdown menu
