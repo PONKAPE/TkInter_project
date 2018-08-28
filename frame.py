@@ -27,7 +27,7 @@ def exit_program():
 menu = Menu(root)
 root.config(menu=menu)
 
-subMenu = Menu(menu)
+subMenu = Menu(menu, tearoff=False) # tearoff removes dashes "-----"
 menu.add_cascade(label="File", menu=subMenu) 
 subMenu.add_command(label="About", command=exit_program) # About section..
 subMenu.add_separator()
