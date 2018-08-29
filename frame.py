@@ -1,11 +1,22 @@
 from tkinter import *
 from PIL import ImageTk, Image
 
+# Buttons
+
+class App:
+    def __init__(self, master):
+        fm = Frame(master)
+        Button(fm, text='Teams').pack(side=BOTTOM, anchor=W, fill=X, expand=YES)
+        Button(fm, text='Random Matchup').pack(side=BOTTOM, anchor=W, fill=X, expand=YES)      
+        fm.pack(side=BOTTOM, fill=BOTH, expand=YES)
+
 # Main window
 root = Tk()
 root.title("NHL 94")
-root.geometry("700x400")
 root.configure(background='grey')
+
+root.option_add('*font', ('verdana', 12, 'bold'))
+display = App(root)
 
 path = "nhl.jpg"
 
