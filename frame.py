@@ -13,7 +13,6 @@ class App:
 # Main window
 root = Tk()
 root.title("NHL 94")
-root.configure(background='grey')
 
 root.option_add('*font', ('verdana', 12, 'bold'))
 display = App(root)
