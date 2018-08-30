@@ -1,7 +1,7 @@
 ### TO-DO NHL 94 project
 
 - [x] Make window instances
-- [x] Remove global import
+- [ ] Remove global import
 - [/] Design application
 - [x] Dropdown menu (About, Exit)
 - [x] Buttons (Teams, Matchup)
@@ -11,4 +11,6 @@
 - [ ] Teams section
 - [ ] Random matchup section
 - [ ] Re-work repository
-- [ ] Re-work frame.py (best practices)
+- [ ] Main application to class
+- [ ] All major features to class
+- [ ] Fix README.MD
