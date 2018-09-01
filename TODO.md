@@ -2,7 +2,9 @@
 
 - [x] Make window instances
 - [ ] Remove global import
-- [/] Design application
+- [x] Design application (Main)
+- [ ] Design application (Teams)
+- [ ] Design application (Random Matchup)
 - [x] Dropdown menu (About, Exit)
 - [x] Buttons (Teams, Matchup)
 - [x] Add awesome NHL.jpg to frame
@@ -14,3 +16,7 @@
 - [ ] Main application to class
 - [ ] All major features to class
 - [ ] Fix README.MD
+- [ ] Fix README.MD to README.rst
+- [ ] Folder for images and others
+- [ ] LICENCSE ?
+- [ ] Tests
