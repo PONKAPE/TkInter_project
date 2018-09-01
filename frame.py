@@ -3,7 +3,7 @@ from PIL import ImageTk, Image
 
 root = Tk()
 
-path = "nhl.jpg"
+path = "project/images/nhl_intro.jpg"
 img = ImageTk.PhotoImage(Image.open(path))
 panel = Label(root, image = img)
 panel.pack(side = "top", fill = "both", expand = "yes")
@@ -12,8 +12,7 @@ class MainApplication:
     def __init__(self, master):
             root.title("NHL 94")
             root.option_add('*font', ('verdana', 12, 'bold'))
-
-
+            
 
 class DropDown:
     def __init__(self, master):
