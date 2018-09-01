@@ -12,11 +12,11 @@
 - [ ] Version number
 - [ ] Teams section
 - [ ] Random matchup section
-- [ ] Re-work repository
+- [/] Re-work repository
 - [ ] Main application to class
 - [ ] All major features to class
 - [ ] Fix README.MD
 - [ ] Fix README.MD to README.rst
-- [ ] Folder for images and others
+- [/] Folder for images and others
 - [ ] LICENCSE ?
 - [ ] Tests
