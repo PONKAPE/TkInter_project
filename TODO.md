@@ -1,7 +1,7 @@
 ### TO-DO NHL 94 project
 
 - [x] Make window instances
-- [ ] Remove global import
+- [x] Remove global import
 - [x] Design application (Main)
 - [ ] Design application (Teams)
 - [ ] Design application (Random Matchup)
