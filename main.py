@@ -8,12 +8,14 @@ class MainWindow(tk.Frame):
 
     def __init__(self, parent, *args, **kwargs):
         tk.Frame.__init__(self, parent,  *args, **kwargs)
+        # Buttons
         self.button1 = tk.Button(self, text="Random Matchup",
-                                 command=self.create_window)
+                                 command=self.hockey_teams)
         self.button1.pack(side="bottom", fill="both")
         self.button2 = tk.Button(self, text="Teams",
-                                 command=self.create_window)
+                                 command=self.random_teams)
         self.button2.pack(side="bottom", fill="both")
+        # Menu Bar
         menubar = MenuBar(self)
         root.configure(menu=menubar)
         root.title("NHL 94") 
@@ -27,14 +29,14 @@ class MainWindow(tk.Frame):
         img.place(x=0, y=0)
 
 
-    def create_window(self): # Teams
+    def hockey_teams(self):
         self.counter += 1
         t = tk.Toplevel(self)
         t.wm_title("Window #%s" % self.counter)
         l = tk.Label(t, text="This is window #%s" % self.counter)
         l.pack(side="top", fill="both", expand=True, padx=100, pady=100)
 
-    def create_window2(self): # Random
+    def random_teams(self): 
         self.counter += 1
         t = tk.Toplevel(self)
         t.wm_title("Window #%s" % self.counter)
@@ -46,7 +48,7 @@ class MenuBar(tk.Menu):
         tk.Menu.__init__(self, parent)
         fileMenu = tk.Menu(self, tearoff=False)
         self.add_cascade(label="File", menu=fileMenu)
-        fileMenu.add_command(label="About", command=self.exit_program) # About section..
+        fileMenu.add_command(label="About", command=self.exit_program)
         fileMenu.add_separator()
         fileMenu.add_command(label="Exit", command=self.exit_program)
 
