@@ -4,17 +4,14 @@ import sys
 
 
 class MainWindow(tk.Frame):
-    counter = 0
+  #  counter = 0
 
     def __init__(self, parent, *args, **kwargs):
         tk.Frame.__init__(self, parent,  *args, **kwargs)
         # Buttons
-        self.button1 = tk.Button(self, text="Random Matchup",
-                                 command=self.hockey_teams)
-        self.button1.pack(side="bottom", fill="both")
-        self.button2 = tk.Button(self, text="Teams",
-                                 command=self.random_teams)
-        self.button2.pack(side="bottom", fill="both")
+        self.parent = parent
+        self.navbutton = NavButton(self)
+        self.navbutton.pack(side="bottom", fill="both")
         # Menu Bar
         menubar = MenuBar(self)
         root.configure(menu=menubar)
@@ -29,19 +26,27 @@ class MainWindow(tk.Frame):
         img.place(x=0, y=0)
 
 
+class NavButton(tk.Frame):
+    def __init__(self, parent):
+        tk.Frame.__init__(self, parent)
+        self.parent = parent
+        self.teamsBtn = tk.Button(self, text='Teams', command=self.hockey_teams)
+        self.randomBtn = tk.Button(self, text='Random Matchup', command=self.random_teams)
+        self.teamsBtn.pack(fill="both")
+        self.randomBtn.pack(fill="both")
+
     def hockey_teams(self):
-        self.counter += 1
         t = tk.Toplevel(self)
-        t.wm_title("Window #%s" % self.counter)
-        l = tk.Label(t, text="This is window #%s" % self.counter)
+        t.wm_title("Teams Section")
+        l = tk.Label(t, text="Teams")
         l.pack(side="top", fill="both", expand=True, padx=100, pady=100)
 
     def random_teams(self): 
-        self.counter += 1
         t = tk.Toplevel(self)
-        t.wm_title("Window #%s" % self.counter)
-        l = tk.Label(t, text="This is window #%s" % self.counter)
+        t.wm_title("RANDOM")
+        l = tk.Label(t, text="Randomize")
         l.pack(side="top", fill="both", expand=True, padx=100, pady=100)
+
 
 class MenuBar(tk.Menu):
     def __init__(self, parent):
