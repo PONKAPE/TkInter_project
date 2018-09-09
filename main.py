@@ -1,17 +1,20 @@
 import tkinter as tk
 from PIL import ImageTk, Image
 import sys
-
+import random
 
 class MainWindow(tk.Frame):
-  #  counter = 0
 
     def __init__(self, parent, *args, **kwargs):
         tk.Frame.__init__(self, parent,  *args, **kwargs)
         # Buttons
         self.parent = parent
-        self.navbutton = NavButton(self)
-        self.navbutton.pack(side="bottom", fill="both")
+        self.frame = tk.Frame(self.parent)
+        self.button1 = tk.Button(self.frame, text = 'Random Teams', width = 70, command = self.new_window)
+        self.button1.pack(side="bottom", fill="both", expand="yes")
+        self.button_2 = tk.Button(self.frame, text = 'Teams', width = 70, state = tk.DISABLED)
+        self.button_2.pack(side="bottom", fill="both", expand="yes")
+        self.frame.pack(side="bottom", fill="both")
         # Menu Bar
         menubar = MenuBar(self)
         root.configure(menu=menubar)
@@ -25,27 +28,19 @@ class MainWindow(tk.Frame):
         img.image = render
         img.place(x=0, y=0)
 
+    def new_window(self): 
+        self.newWindow = tk.Toplevel(self.parent)
+        self.main = random_team(self.newWindow)
 
-class NavButton(tk.Frame):
+class random_team(tk.Frame):
     def __init__(self, parent):
-        tk.Frame.__init__(self, parent)
+        parent.minsize(width=666, height=500)
+        parent.title("RANDOMIZE")
         self.parent = parent
-        self.teamsBtn = tk.Button(self, text='Teams', command=self.hockey_teams)
-        self.randomBtn = tk.Button(self, text='Random Matchup', command=self.random_teams)
-        self.teamsBtn.pack(fill="both")
-        self.randomBtn.pack(fill="both")
-
-    def hockey_teams(self):
-        t = tk.Toplevel(self)
-        t.wm_title("Teams Section")
-        l = tk.Label(t, text="Teams")
-        l.pack(side="top", fill="both", expand=True, padx=100, pady=100)
-
-    def random_teams(self): 
-        t = tk.Toplevel(self)
-        t.wm_title("RANDOM")
-        l = tk.Label(t, text="Randomize")
-        l.pack(side="top", fill="both", expand=True, padx=100, pady=100)
+        self.frame = tk.Frame(self.parent)
+        self.quitButton = tk.Button(self.frame, text = 'Quit')
+        self.quitButton.pack()
+        self.frame.pack()
 
 
 class MenuBar(tk.Menu):
@@ -66,5 +61,3 @@ if __name__ == "__main__":
     main = MainWindow(root)
     main.pack(side="top", fill="both", expand=True)
     root.mainloop()
-
-
