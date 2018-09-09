@@ -4,17 +4,16 @@
 - [x] Remove global import
 - [x] Design application (Main)
 - [ ] Design application (Teams)
-- [ ] Design application (Random Matchup)
+- [/] Design application (Random Matchup)
 - [x] Dropdown menu (About, Exit)
 - [x] Buttons (Teams, Matchup)
 - [x] Add awesome NHL.jpg to frame
-- [ ] Add multiple frames
+- [x] Add multiple frames
 - [ ] Version number
 - [ ] Teams section
-- [ ] Random matchup section
+- [/] Random matchup section
 - [/] Re-work repository
-- [ ] Main application to class
-- [ ] All major features to class
+- [x] Main application to class
 - [ ] Fix README.MD
 - [ ] Fix README.MD to README.rst
 - [/] Folder for images and others
