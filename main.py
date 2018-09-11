@@ -18,8 +18,9 @@ class MainWindow(tk.Frame):
         # Menu Bar
         menubar = MenuBar(self)
         root.configure(menu=menubar)
+        # Title, font & window size
         root.title("NHL 94") 
-        root.option_add('*font', ('verdana', 12, 'bold'))
+        root.option_add('*font', ('verdana', 16, 'bold'))
         root.geometry("700x450")
         # NHL-Image
         load = Image.open("project/images/nhl_intro.jpg")
@@ -32,16 +33,6 @@ class MainWindow(tk.Frame):
         self.newWindow = tk.Toplevel(self.parent)
         self.main = random_team(self.newWindow)
 
-class random_team(tk.Frame):
-    def __init__(self, parent):
-        parent.minsize(width=666, height=500)
-        parent.title("RANDOMIZE")
-        self.parent = parent
-        self.frame = tk.Frame(self.parent)
-        self.quitButton = tk.Button(self.frame, text = 'Quit')
-        self.quitButton.pack()
-        self.frame.pack()
-
 
 class MenuBar(tk.Menu):
     def __init__(self, parent):
@@ -53,8 +44,24 @@ class MenuBar(tk.Menu):
         fileMenu.add_command(label="Exit", command=self.exit_program)
 
     def exit_program(self):
-        sys.exit(0)
+            sys.exit(0)
 
+class random_team(tk.Frame):
+    def __init__(self, parent):
+        tk.Frame.__init__(self, parent)
+        parent.minsize(width=666, height=500)
+        parent.title("RANDOMIZE")
+        # VERSUS
+        text_1 = tk.Label(parent, text="VS", fg="red", anchor="center")
+        text_1.place(relx=.5, rely=.5, anchor="center") 
+        # Button for randomize
+        self.parent = parent
+        self.frame = tk.Frame(self.parent)
+        self.quitButton = tk.Button(self.frame, text = 'Quit')
+        self.quitButton.pack(side="bottom")
+        self.frame.pack(side="bottom")
+
+        
 
 if __name__ == "__main__":
     root = tk.Tk()
