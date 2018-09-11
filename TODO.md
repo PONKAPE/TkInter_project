@@ -19,3 +19,6 @@
 - [/] Folder for images and others
 - [ ] LICENCSE ?
 - [ ] Tests
+- [ ] Dropdown to another frames also
+- [ ] Randon team function
+- [ ] About section
