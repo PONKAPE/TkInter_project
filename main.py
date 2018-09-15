@@ -51,16 +51,17 @@ class random_team(tk.Frame):
         tk.Frame.__init__(self, parent)
         parent.minsize(width=666, height=500)
         parent.title("RANDOMIZE")
-        # VERSUS
+        # TEXT
         text_1 = tk.Label(parent, text="VS", fg="red", anchor="center")
         text_1.place(relx=.5, rely=.5, anchor="center") 
+        text_2 = tk.Label(parent, text="RANDOM GAME", fg="green", anchor="n")
+        text_2.pack(side="top") 
         # Button for randomize
         self.parent = parent
         self.frame = tk.Frame(self.parent)
         self.quitButton = tk.Button(self.frame, text = 'Quit')
         self.quitButton.pack(side="bottom")
         self.frame.pack(side="bottom")
-
         
 
 if __name__ == "__main__":
