@@ -59,10 +59,18 @@ class random_team(tk.Frame):
         # Button for randomize
         self.parent = parent
         self.frame = tk.Frame(self.parent)
-        self.quitButton = tk.Button(self.frame, text = 'Quit')
-        self.quitButton.pack(side="bottom")
+        self.randomButton = tk.Button(self.frame, text = 'RANDOM')
+        self.randomButton.pack(side="bottom")
         self.frame.pack(side="bottom")
-        
+        # Team 1 input
+        home_label = tk.Label(parent, text= "Home team: ")
+        home_label.pack(side="left")
+        self.home_entry = tk.Entry(self.parent, width = 10)
+        self.home_entry.pack(side="left")
+        # Team 2 input-field
+        visitor_label = tk.Label(parent, text= "Visitor team: ")
+        visitor_label.pack(side="right")
+
 
 if __name__ == "__main__":
     root = tk.Tk()
