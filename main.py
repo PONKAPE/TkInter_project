@@ -49,7 +49,7 @@ class MenuBar(tk.Menu):
 class random_team(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
-        parent.minsize(width=666, height=500)
+        parent.minsize(width=777, height=500)
         parent.title("RANDOMIZE")
         # TEXT
         text_1 = tk.Label(parent, text="VS", fg="red", anchor="center")
@@ -68,8 +68,11 @@ class random_team(tk.Frame):
         self.home_entry = tk.Entry(self.parent, width = 10)
         self.home_entry.pack(side="left")
         # Team 2 input-field
+        self.visitor_entry = tk.Entry(self.parent, width = 10)
+        self.visitor_entry.pack(side="right")
         visitor_label = tk.Label(parent, text= "Visitor team: ")
         visitor_label.pack(side="right")
+
 
 
 if __name__ == "__main__":
