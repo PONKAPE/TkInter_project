@@ -65,11 +65,11 @@ class random_team(tk.Frame):
         # Team 1 input
         home_label = tk.Label(parent, text= "Home team: ")
         home_label.pack(side="left")
-        self.home_entry = tk.Entry(self.parent, width = 10)
-        self.home_entry.pack(side="left")
+        self.entry = tk.Entry(self.parent, width = 10)
+        self.entry.pack(side="left")
         # Team 2 input-field
-        self.visitor_entry = tk.Entry(self.parent, width = 10)
-        self.visitor_entry.pack(side="right")
+        self.entry = tk.Entry(self.parent, width = 10)
+        self.entry.pack(side="right")
         visitor_label = tk.Label(parent, text= "Visitor team: ")
         visitor_label.pack(side="right")
 
