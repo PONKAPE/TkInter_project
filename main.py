@@ -22,6 +22,7 @@ class MainWindow(tk.Frame):
         root.title("NHL 94") 
         root.option_add('*font', ('verdana', 16, 'bold'))
         root.geometry("700x450")
+        root. resizable(0, 0) # Don't allow resizing
         # NHL-Image
         load = Image.open("project/images/nhl_intro.jpg")
         render = ImageTk.PhotoImage(load)
