@@ -20,5 +20,5 @@
 - [ ] LICENCSE ?
 - [ ] Tests
 - [ ] Dropdown to another frames also
-- [ ] Randon team function
+- [/] Randon team function
 - [ ] About section
