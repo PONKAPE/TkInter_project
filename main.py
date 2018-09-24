@@ -60,20 +60,21 @@ class random_team(tk.Frame):
         # Button for randomize
         self.parent = parent
         self.frame = tk.Frame(self.parent)
-        self.randomButton = tk.Button(self.frame, text = 'RANDOM')
+        self.randomButton = tk.Button(self.frame, text = 'RANDOM', command=self.genRanTeam)
         self.randomButton.pack(side="bottom")
         self.frame.pack(side="bottom")
+        self.text = tk.StringVar()
         # Team 1 input
-        home_label = tk.Label(parent, text= "Home team: ")
+        home_label = tk.Label(parent, textvariable = self.text)
         home_label.pack(side="left")
-        self.entry = tk.Entry(self.parent, width = 10)
-        self.entry.pack(side="left")
         # Team 2 input-field
-        self.entry = tk.Entry(self.parent, width = 10)
-        self.entry.pack(side="right")
-        visitor_label = tk.Label(parent, text= "Visitor team: ")
+        visitor_label = tk.Label(parent, textvariable = self.text)
         visitor_label.pack(side="right")
+        
 
+    def genRanTeam(self):
+        teams = ['Allstars East', 'Allstars West', 'Anaheim', 'Boston', 'Buffalo', 'Calgary', 'Chicago', 'Dallas', 'Detroit', 'Edmonton', 'Florida', 'Hartford', 'Los Angeles', 'Montreal', 'New Jersey', 'NY Islanders', 'NY Rangers', 'Ottawa', 'Philadelphia', 'Pittsburgh', 'Quebec', 'San Jose', 'St. Louis', 'Tampa Bay', 'Toronto', 'Vancouver', 'Washington', 'Winnipeg']
+        self.text.set(random.choice(teams))
 
 
 if __name__ == "__main__":
