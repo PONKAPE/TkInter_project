@@ -63,18 +63,23 @@ class random_team(tk.Frame):
         self.randomButton = tk.Button(self.frame, text = 'RANDOM', command=self.genRanTeam)
         self.randomButton.pack(side="bottom")
         self.frame.pack(side="bottom")
-        self.text = tk.StringVar()
+        self.home = tk.StringVar()
+        self.visitor = tk.StringVar()
         # Team 1 input
-        home_label = tk.Label(parent, textvariable = self.text)
+        home_label = tk.Label(parent, textvariable = self.home)
         home_label.pack(side="left")
         # Team 2 input-field
-        visitor_label = tk.Label(parent, textvariable = self.text)
+        visitor_label = tk.Label(parent, textvariable = self.visitor)
         visitor_label.pack(side="right")
         
 
     def genRanTeam(self):
-        teams = ['Allstars East', 'Allstars West', 'Anaheim', 'Boston', 'Buffalo', 'Calgary', 'Chicago', 'Dallas', 'Detroit', 'Edmonton', 'Florida', 'Hartford', 'Los Angeles', 'Montreal', 'New Jersey', 'NY Islanders', 'NY Rangers', 'Ottawa', 'Philadelphia', 'Pittsburgh', 'Quebec', 'San Jose', 'St. Louis', 'Tampa Bay', 'Toronto', 'Vancouver', 'Washington', 'Winnipeg']
-        self.text.set(random.choice(teams))
+        x = random.choice(['Allstars East', 'Allstars West', 'Anaheim', 'Boston', 'Buffalo', 'Calgary', 'Chicago', 'Dallas', 'Detroit', 'Edmonton', 'Florida', 'Hartford', 'Los Angeles', 'Montreal', 'New Jersey', 'NY Islanders', 'NY Rangers', 'Ottawa', 'Philadelphia', 'Pittsburgh', 'Quebec', 'San Jose', 'St. Louis', 'Tampa Bay', 'Toronto', 'Vancouver', 'Washington', 'Winnipeg'])
+        y = random.choice(['Allstars East', 'Allstars West', 'Anaheim', 'Boston', 'Buffalo', 'Calgary', 'Chicago', 'Dallas', 'Detroit', 'Edmonton', 'Florida', 'Hartford', 'Los Angeles', 'Montreal', 'New Jersey', 'NY Islanders', 'NY Rangers', 'Ottawa', 'Philadelphia', 'Pittsburgh', 'Quebec', 'San Jose', 'St. Louis', 'Tampa Bay', 'Toronto', 'Vancouver', 'Washington', 'Winnipeg'])
+        self.home.set(x)
+        self.visitor.set(y)
+        return
+        
 
 
 if __name__ == "__main__":
