@@ -50,7 +50,7 @@ class MenuBar(tk.Menu):
 class random_team(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
-        parent.minsize(width=777, height=500)
+        parent.minsize(width=888, height=500)
         parent.title("RANDOMIZE")
         # TEXT
         text_1 = tk.Label(parent, text="VS", fg="red", anchor="center")
@@ -65,14 +65,23 @@ class random_team(tk.Frame):
         self.frame.pack(side="bottom")
         self.home = tk.StringVar()
         self.visitor = tk.StringVar()
-        # Team 1 input
+        # Home team
+        load = Image.open("project/images/question.jpg") # https://www.charbase.com/fe56-unicode-small-question-mark
+        render = ImageTk.PhotoImage(load)
+        img = tk.Label(parent, image=render)
+        img.image = render
+        img.pack(side="left")
         home_label = tk.Label(parent, textvariable = self.home)
         home_label.pack(side="left")
-        # Team 2 input-field
+        # Visitor team
+        load = Image.open("project/images/question.jpg") # https://www.charbase.com/fe56-unicode-small-question-mark 
+        render = ImageTk.PhotoImage(load)
+        img = tk.Label(parent, image=render)
+        img.image = render
+        img.pack(side="right")
         visitor_label = tk.Label(parent, textvariable = self.visitor)
         visitor_label.pack(side="right")
         
-
     def genRanTeam(self):
         x = random.choice(['Allstars East', 'Allstars West', 'Anaheim', 'Boston', 'Buffalo', 'Calgary', 'Chicago', 'Dallas', 'Detroit', 'Edmonton', 'Florida', 'Hartford', 'Los Angeles', 'Montreal', 'New Jersey', 'NY Islanders', 'NY Rangers', 'Ottawa', 'Philadelphia', 'Pittsburgh', 'Quebec', 'San Jose', 'St. Louis', 'Tampa Bay', 'Toronto', 'Vancouver', 'Washington', 'Winnipeg'])
         y = random.choice(['Allstars East', 'Allstars West', 'Anaheim', 'Boston', 'Buffalo', 'Calgary', 'Chicago', 'Dallas', 'Detroit', 'Edmonton', 'Florida', 'Hartford', 'Los Angeles', 'Montreal', 'New Jersey', 'NY Islanders', 'NY Rangers', 'Ottawa', 'Philadelphia', 'Pittsburgh', 'Quebec', 'San Jose', 'St. Louis', 'Tampa Bay', 'Toronto', 'Vancouver', 'Washington', 'Winnipeg'])
@@ -80,7 +89,6 @@ class random_team(tk.Frame):
         self.visitor.set(y)
         return
         
-
 
 if __name__ == "__main__":
     root = tk.Tk()
