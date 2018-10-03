@@ -12,7 +12,7 @@ class MainWindow(tk.Frame):
         self.frame = tk.Frame(self.parent)
         self.button1 = tk.Button(self.frame, text = 'Random Teams', width = 70, command = self.new_window)
         self.button1.pack(side="bottom", fill="both", expand="yes")
-        self.button_2 = tk.Button(self.frame, text = 'Teams', width = 70, state = tk.DISABLED)
+        self.button_2 = tk.Button(self.frame, text = 'Teams', width = 70, command = self.team_window)
         self.button_2.pack(side="bottom", fill="both", expand="yes")
         self.frame.pack(side="bottom", fill="both")
         # Menu Bar
@@ -34,6 +34,10 @@ class MainWindow(tk.Frame):
         self.newWindow = tk.Toplevel(self.parent)
         self.main = random_team(self.newWindow)
 
+    def team_window(self):
+        self.teams = tk.Toplevel(self.parent)
+        self.main = team_window(self.teams)
+
 
 class MenuBar(tk.Menu):
     def __init__(self, parent):
@@ -46,6 +50,11 @@ class MenuBar(tk.Menu):
 
     def exit_program(self):
             sys.exit(0)
+
+class team_window(tk.Frame):
+    def __init__(self, parent):
+        tk.Frame.__init__(self, parent)
+        parent.minsize(width=999, height=500)
 
 class random_team(tk.Frame):
     def __init__(self, parent):
@@ -68,19 +77,21 @@ class random_team(tk.Frame):
         # Home team
         load = Image.open("project/images/question.jpg") # https://www.charbase.com/fe56-unicode-small-question-mark
         render = ImageTk.PhotoImage(load)
-        img = tk.Label(parent, image=render)
-        img.image = render
-        img.pack(side="left")
+        home_img = tk.Label(parent, image=render)
+        home_img.image = render
+        home_img.pack(side="left")
         home_label = tk.Label(parent, textvariable = self.home)
         home_label.pack(side="left")
         # Visitor team
         load = Image.open("project/images/question.jpg") # https://www.charbase.com/fe56-unicode-small-question-mark 
         render = ImageTk.PhotoImage(load)
-        img = tk.Label(parent, image=render)
-        img.image = render
-        img.pack(side="right")
+        visitor_img = tk.Label(parent, image=render)
+        visitor_img.image = render
+        visitor_img.pack(side="right")
         visitor_label = tk.Label(parent, textvariable = self.visitor)
         visitor_label.pack(side="right")
+        images=[]
+        
         
     def genRanTeam(self):
         x = random.choice(['Allstars East', 'Allstars West', 'Anaheim', 'Boston', 'Buffalo', 'Calgary', 'Chicago', 'Dallas', 'Detroit', 'Edmonton', 'Florida', 'Hartford', 'Los Angeles', 'Montreal', 'New Jersey', 'NY Islanders', 'NY Rangers', 'Ottawa', 'Philadelphia', 'Pittsburgh', 'Quebec', 'San Jose', 'St. Louis', 'Tampa Bay', 'Toronto', 'Vancouver', 'Washington', 'Winnipeg'])
