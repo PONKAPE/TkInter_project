@@ -4,13 +4,13 @@
 - [x] Remove global import
 - [x] Design application (Main)
 - [ ] Design application (Teams)
-- [/] Design application (Random Matchup)
+- [x] Design application (Random Matchup)
 - [x] Dropdown menu (About, Exit)
 - [x] Buttons (Teams, Matchup)
 - [x] Add awesome NHL.jpg to frame
 - [x] Add multiple frames
 - [ ] Version number
-- [ ] Teams section
+- [/] Teams section
 - [/] Random matchup section
 - [/] Re-work repository
 - [x] Main application to class
