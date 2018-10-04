@@ -3,7 +3,7 @@
 - [x] Make window instances
 - [x] Remove global import
 - [x] Design application (Main)
-- [ ] Design application (Teams)
+- [/] Design application (Teams)
 - [x] Design application (Random Matchup)
 - [x] Dropdown menu (About, Exit)
 - [x] Buttons (Teams, Matchup)
