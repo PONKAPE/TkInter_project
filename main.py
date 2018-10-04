@@ -55,6 +55,13 @@ class team_window(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
         parent.minsize(width=999, height=500)
+        parent.title("NHL Teams")
+        load = Image.open("project/images/west.jpg")
+        render = ImageTk.PhotoImage(load)
+        home_img = tk.Label(parent, image=render)
+        home_img.image = render
+        home_img.pack(side="left")
+
 
 class random_team(tk.Frame):
     def __init__(self, parent):
@@ -90,7 +97,6 @@ class random_team(tk.Frame):
         visitor_img.pack(side="right")
         visitor_label = tk.Label(parent, textvariable = self.visitor)
         visitor_label.pack(side="right")
-        images=[]
         
         
     def genRanTeam(self):
