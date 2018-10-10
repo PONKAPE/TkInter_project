@@ -54,8 +54,19 @@ class MenuBar(tk.Menu):
 class team_window(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
+        # Frame configurations
         parent.minsize(width=999, height=500)
         parent.title("NHL Teams")
+        ### Teams-section. Explanation for next solution for showing team logos
+        ### http://effbot.org/pyfaq/why-do-my-tkinter-images-not-appear.htm
+        ### 
+        ### "The problem is that the Tkinter/Tk interface doesn’t handle references to Image objects properly; the Tk widget will hold a reference to the internal object, but Tkinter does not. 
+        ### When Python’s garbage collector discards the Tkinter object, Tkinter tells Tk to release the image.
+        ### But since the image is in use by a widget, Tk doesn’t destroy it. Not completely. 
+        ### It just blanks the image, making it completely transparent…"
+        ### 
+        ###
+
         load = Image.open("project/images/west.jpg")
         render = ImageTk.PhotoImage(load)
         home_img = tk.Label(parent, image=render)
