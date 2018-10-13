@@ -57,6 +57,7 @@ class team_window(tk.Frame):
         # Frame configurations
         parent.minsize(width=999, height=500)
         parent.title("NHL Teams")
+
         ### Teams-section. Explanation for next solution for showing team logos
         ### http://effbot.org/pyfaq/why-do-my-tkinter-images-not-appear.htm
         ### 
@@ -68,6 +69,30 @@ class team_window(tk.Frame):
         ###
 
         load = Image.open("project/images/west.jpg")
+        render = ImageTk.PhotoImage(load)
+        home_img = tk.Label(parent, image=render)
+        home_img.image = render
+        home_img.pack(side="left")
+
+        load = Image.open("project/images/anaheim.jpg")
+        render = ImageTk.PhotoImage(load)
+        home_img = tk.Label(parent, image=render)
+        home_img.image = render
+        home_img.pack(side="left")
+
+        load = Image.open("project/images/anaheim.jpg")
+        render = ImageTk.PhotoImage(load)
+        home_img = tk.Label(parent, image=render)
+        home_img.image = render
+        home_img.pack(side="left")
+
+        load = Image.open("project/images/anaheim.jpg")
+        render = ImageTk.PhotoImage(load)
+        home_img = tk.Label(parent, image=render)
+        home_img.image = render
+        home_img.pack(side="left")
+
+        load = Image.open("project/images/anaheim.jpg")
         render = ImageTk.PhotoImage(load)
         home_img = tk.Label(parent, image=render)
         home_img.image = render
