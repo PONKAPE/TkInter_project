@@ -18,6 +18,7 @@
 - [ ] Fix README.MD to README.rst
 - [/] Folder for images and others
 - [ ] LICENCSE ?
+- [ ] Any error handling
 - [ ] Tests
 - [ ] Dropdown to another frames also
 - [/] Randon team function
