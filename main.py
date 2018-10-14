@@ -57,7 +57,7 @@ class team_window(tk.Frame):
         # Frame configurations
         parent.minsize(width=999, height=500)
         parent.title("NHL Teams")
-
+     
         ### Teams-section. Explanation for next solution for showing team logos
         ### http://effbot.org/pyfaq/why-do-my-tkinter-images-not-appear.htm
         ### 
@@ -68,35 +68,35 @@ class team_window(tk.Frame):
         ### 
         ###
 
+        load = Image.open("project/images/east.jpg")
+        render = ImageTk.PhotoImage(load)
+        home_img = tk.Label(parent, image=render, text="Allstar East", compound=tk.TOP)
+        home_img.image = render
+        home_img.pack(side="left")
+
         load = Image.open("project/images/west.jpg")
         render = ImageTk.PhotoImage(load)
-        home_img = tk.Label(parent, image=render)
-        home_img.image = render
-        home_img.pack(side="left")
+        west_img = tk.Label(parent, image=render, text="Allstar West", compound=tk.TOP)
+        west_img.image = render
+        west_img.pack(side="left")
 
         load = Image.open("project/images/anaheim.jpg")
         render = ImageTk.PhotoImage(load)
-        home_img = tk.Label(parent, image=render)
-        home_img.image = render
-        home_img.pack(side="left")
+        anaheim_img = tk.Label(parent, image=render, text="Anaheim", compound=tk.TOP)
+        anaheim_img.image = render
+        anaheim_img.pack(side="left")
 
-        load = Image.open("project/images/anaheim.jpg")
+        load = Image.open("project/images/boston.jpg")
         render = ImageTk.PhotoImage(load)
-        home_img = tk.Label(parent, image=render)
-        home_img.image = render
-        home_img.pack(side="left")
+        boston_img = tk.Label(parent, image=render, text="Boston", compound=tk.TOP)
+        boston_img.image = render
+        boston_img.pack(side="left")
 
-        load = Image.open("project/images/anaheim.jpg")
+        load = Image.open("project/images/buffalo.jpg")
         render = ImageTk.PhotoImage(load)
-        home_img = tk.Label(parent, image=render)
-        home_img.image = render
-        home_img.pack(side="left")
-
-        load = Image.open("project/images/anaheim.jpg")
-        render = ImageTk.PhotoImage(load)
-        home_img = tk.Label(parent, image=render)
-        home_img.image = render
-        home_img.pack(side="left")
+        buffalo_img = tk.Label(parent, image=render, text="Buffalo", compound=tk.TOP)
+        buffalo_img.image = render
+        buffalo_img.pack(side="left")
 
 
 class random_team(tk.Frame):
