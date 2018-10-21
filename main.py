@@ -99,6 +99,16 @@ class team_window(tk.Frame):
         buffalo_img.pack(side="left")
 
 
+
+class Team():
+    def __init__(self, name, img_filename):
+            self.name = name
+            self.img_filename = img_filename
+
+   #This is how the class prints
+    def __str__(self):
+        return "Name: {} Image:{}".format(self.name, self.img_filename)
+
 class random_team(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
@@ -133,13 +143,22 @@ class random_team(tk.Frame):
         visitor_img.pack(side="right")
         visitor_label = tk.Label(parent, textvariable = self.visitor)
         visitor_label.pack(side="right")
+
+
+    def __init__Teams(self):
+        self.teams = [Team('Allstars East', east.jpg), Team('Allstars West', west.jpg), Team('Anaheim', anaheim.jpg), Team('Boston', boston.jpg), Team('Buffalo', buffalo.jpg), Team('Calgary', calgary.jpg), Team('Chicago', chicago.jpg), Team('Dallas', dallas.jpg), Team('Detroit', detroit.jpg), Team('Edmonton', edmonton.jpg), Team('Florida', florida.jpg),  Team('Hartford', hartford.jpg), Team('Los Angeles', los_angeles.jpg), Team('Montreal', montreal.jpg), Team('NY Islanders', ny_islanders.jpg), Team('NY Rangers', ny_rangers.jpg), Team('Ottawa', ottawa.jpg), Team('Philadelphia', philadelphia.jpg), Team('Pittsburgh', pittsburgh.jpg), Team('Quebec', quebec.jpg), Team('San Jose', sharks.jpg), Team('St. Louis', st_louis.jpg), Team('Tampa Bay', tampa_bay.jpg), Team('Toronto', toronto.jpg), Team('Vancouver', vancouver.jpg), Team('Washington', washington.jpg), Team('Winnipeg', winnipeg.jpg)]
+        # Init defaults
+        self.home = self.teams[0]
+        self.visitor = self.teams[0]
         
         
-    def genRanTeam(self):
-        x = random.choice(['Allstars East', 'Allstars West', 'Anaheim', 'Boston', 'Buffalo', 'Calgary', 'Chicago', 'Dallas', 'Detroit', 'Edmonton', 'Florida', 'Hartford', 'Los Angeles', 'Montreal', 'New Jersey', 'NY Islanders', 'NY Rangers', 'Ottawa', 'Philadelphia', 'Pittsburgh', 'Quebec', 'San Jose', 'St. Louis', 'Tampa Bay', 'Toronto', 'Vancouver', 'Washington', 'Winnipeg'])
-        y = random.choice(['Allstars East', 'Allstars West', 'Anaheim', 'Boston', 'Buffalo', 'Calgary', 'Chicago', 'Dallas', 'Detroit', 'Edmonton', 'Florida', 'Hartford', 'Los Angeles', 'Montreal', 'New Jersey', 'NY Islanders', 'NY Rangers', 'Ottawa', 'Philadelphia', 'Pittsburgh', 'Quebec', 'San Jose', 'St. Louis', 'Tampa Bay', 'Toronto', 'Vancouver', 'Washington', 'Winnipeg'])
-        self.home.set(x)
-        self.visitor.set(y)
+    def genRanTeam(self): 
+        self.__init__Teams()  # Use the initalized Teams from MainWindow..__init__
+        self.home = random.choice(self.teams)
+        self. visitor = None
+        # Loop while home == visitor
+        while self.visitor is None or self.home.name is self.visitor.name:
+         self.visitor = random.choice(self.teams)
         return
         
 
