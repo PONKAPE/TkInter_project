@@ -1,6 +1,6 @@
 import tkinter as tk
 from PIL import ImageTk, Image
-import sys
+import sys, os
 import random
 
 class MainWindow(tk.Frame):
@@ -101,13 +101,68 @@ class team_window(tk.Frame):
 
 
 class Team():
+    """
+    All Team data
+    """
     def __init__(self, name, img_filename):
-            self.name = name
-            self.img_filename = img_filename
+        self.name = name
+        self.img_filename = img_filename
+        
+    @property
+    def filepath(self):
+        """
+        :return: The filepath of this Team Logo image file.
+        """
+        return self.img_filename
 
-   #This is how the class prints
     def __str__(self):
+        """
+        This is not used in this example, use it for debuging Name - Logo image filename missmatch
+        :return: A string describe this Team data
+        """
         return "Name: {} Image:{}".format(self.name, self.img_filename)
+    
+    
+class TeamWidget(tk.Label):
+    """
+    Inherit from tk.Label to build a Team specific Label showing Image and Text
+    """
+    def __init__(self, parent, team, side):
+        """
+        :param parent: The Parent where this Widget depends on 
+        :param team: A class Team object
+        :param side: How to pack this Label to (left|right)
+        """
+        self._team = None
+        super().__init__(parent, Image=None, text=team.name,
+                         compound="bottom",
+                         fg="yellow",
+                         font=("Helvetica", 18)
+                         )
+        self.pack(side=side)
+
+    @property
+    def team(self):
+        """
+        :return: The class Team object of this TeamWidget 
+        """
+        return self._team
+
+    @team.setter
+    def team(self, team):
+        """
+        NOTE: This works ONLY for PNG Images!
+        
+        Setting a class Team object, read its Logo Image and 
+        configure the Lable Widget with text and image
+        
+        :param team: The class Team object related to this TeamWidget 
+        :return: None
+        """
+        self._team = team
+        # IMPORTANT: Keep Image reference to not get garbage collected
+        self.image = tk.PhotoImage(file=team.filepath)
+        super().configure(text=team.name, image=self.image)
 
 class random_team(tk.Frame):
     def __init__(self, parent):
