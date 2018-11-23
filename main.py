@@ -44,12 +44,21 @@ class MenuBar(tk.Menu):
         tk.Menu.__init__(self, parent)
         fileMenu = tk.Menu(self, tearoff=False)
         self.add_cascade(label="File", menu=fileMenu)
-        fileMenu.add_command(label="About", command=self.exit_program)
+        fileMenu.add_command(label="About", command = lambda: self.popupmsg("NHL94 Tkinter project is made by ponkape by inspiration of NHL94 game. \
+        All feedback and development ideas are welcome!"))
         fileMenu.add_separator()
         fileMenu.add_command(label="Exit", command=self.exit_program)
 
     def exit_program(self):
             sys.exit(0)
+
+    def popupmsg(self, msg):
+        popup = tk.Tk()
+        popup.wm_title("About")
+        label = tk.Label(popup, text=msg)
+        label.pack(fill="x", pady=10)
+    
+    
 
 class team_window(tk.Frame):
     def __init__(self, parent):
