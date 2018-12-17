@@ -12,7 +12,7 @@ class MainWindow(tk.Frame):
         self.frame = tk.Frame(self.parent)
         self.button1 = tk.Button(self.frame, text = 'Random Teams', width = 70, command = self.new_window)
         self.button1.pack(side="bottom", fill="both", expand="yes")
-        self.button_2 = tk.Button(self.frame, text = 'Teams', width = 70, command = self.team_window)
+        self.button_2 = tk.Button(self.frame, text = 'Hall of Fame', width = 70, command = self.team_window)
         self.button_2.pack(side="bottom", fill="both", expand="yes")
         self.frame.pack(side="bottom", fill="both")
         # Menu Bar
@@ -44,7 +44,7 @@ class MenuBar(tk.Menu):
         tk.Menu.__init__(self, parent)
         fileMenu = tk.Menu(self, tearoff=False)
         self.add_cascade(label="File", menu=fileMenu)
-        fileMenu.add_command(label="About", command = lambda: self.popupmsg("NHL94 Tkinter project is made by ponkape by inspiration of NHL94 game. \
+        fileMenu.add_command(label="About", command = lambda: self.popupmsg("NHL94 Tkinter project is made by ponkape. \
         All feedback and development ideas are welcome!"))
         fileMenu.add_separator()
         fileMenu.add_command(label="Exit", command=self.exit_program)
@@ -77,35 +77,14 @@ class team_window(tk.Frame):
         ### 
         ###
 
+        text_team = tk.Label(parent, text="HALL OF FAME", fg="orange", anchor="n")
+        text_team.pack()
+
         load = Image.open("project/images/east.jpg")
         render = ImageTk.PhotoImage(load)
         home_img = tk.Label(parent, image=render, text="Allstar East", compound=tk.TOP)
         home_img.image = render
-        home_img.pack(side="left")
-
-        load = Image.open("project/images/west.jpg")
-        render = ImageTk.PhotoImage(load)
-        west_img = tk.Label(parent, image=render, text="Allstar West", compound=tk.TOP)
-        west_img.image = render
-        west_img.pack(side="left")
-
-        load = Image.open("project/images/anaheim.jpg")
-        render = ImageTk.PhotoImage(load)
-        anaheim_img = tk.Label(parent, image=render, text="Anaheim", compound=tk.TOP)
-        anaheim_img.image = render
-        anaheim_img.pack(side="left")
-
-        load = Image.open("project/images/boston.jpg")
-        render = ImageTk.PhotoImage(load)
-        boston_img = tk.Label(parent, image=render, text="Boston", compound=tk.TOP)
-        boston_img.image = render
-        boston_img.pack(side="left")
-
-        load = Image.open("project/images/buffalo.jpg")
-        render = ImageTk.PhotoImage(load)
-        buffalo_img = tk.Label(parent, image=render, text="Buffalo", compound=tk.TOP)
-        buffalo_img.image = render
-        buffalo_img.pack(side="left")
+        home_img.pack(pady=10)
 
 
 
