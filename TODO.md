@@ -12,14 +12,13 @@
 - [ ] Version number
 - [/] Teams section
 - [/] Random matchup section
-- [/] Re-work repository
+- [x] Re-work repository
 - [x] Main application to class
-- [ ] Fix README.MD
+- [/] Fix README.MD
 - [ ] Fix README.MD to README.rst
-- [/] Folder for images and others
-- [ ] LICENCSE ?
-- [ ] Any error handling
+- [x] Folder for images and others
+- [x] LICENCSE ?
+- [ ] Error handling
 - [ ] Tests
 - [ ] Dropdown to another frames also
-- [/] Randon team function
-- [ ] About section
+- [x] About section
