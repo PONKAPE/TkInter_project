@@ -22,3 +22,4 @@
 - [ ] Tests
 - [ ] Dropdown to another frames also
 - [x] About section
+- [ ] Sounds (NHL 94 theme)
