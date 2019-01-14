@@ -3,7 +3,6 @@ import tkinter as tk
 from PIL import ImageTk, Image
 import sys, os
 import random
-import mp3play
 
 class MainWindow(tk.Frame):
 
@@ -32,7 +31,7 @@ class MainWindow(tk.Frame):
         img.image = render
         img.place(x=0, y=0)
         # Mp3 theme
-        mp3 = mp3play.load('theme.mp3'); play = lambda: mp3.play()
+        # self.winsound.PlaySound('project/sounnd/theme.wav',winsound.SND_FILENAME)
 
 
     def new_window(self):
