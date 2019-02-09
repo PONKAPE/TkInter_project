@@ -3,6 +3,9 @@ import tkinter as tk
 from PIL import ImageTk, Image
 import sys, os
 import random
+from winsound import PlaySound, SND_FILENAME, SND_LOOP, SND_ASYNC
+
+
 
 class MainWindow(tk.Frame):
 
@@ -30,8 +33,13 @@ class MainWindow(tk.Frame):
         img = tk.Label(self, image=render)
         img.image = render
         img.place(x=0, y=0)
-        # Mp3 theme
-        # self.winsound.PlaySound('project/sounnd/theme.wav',winsound.SND_FILENAME)
+        # NHL-theme song. Song starts after application has started 
+        # SND_FILENAME = 'The sound parameter is the name of a WAV file'
+        # SND_ASYNC = 'Return immediately, allowing sounds to play asynchronously
+        # SND_LOOP = 'Play the sound repeatedly.
+        # Documentation: https://docs.python.org/2/library/winsound.html
+        themeSong = lambda: PlaySound('project/sound/theme.wav', SND_FILENAME | SND_ASYNC | SND_LOOP)
+        themeSong()
 
 
     def new_window(self):
