@@ -3,15 +3,15 @@
 - [x] Make window instances
 - [x] Remove global import
 - [x] Design application (Main)
-- [/] Design application (Teams)
+- [/] Design application (Hall of Fame)
 - [x] Design application (Random Matchup)
 - [x] Dropdown menu (About, Exit)
 - [x] Buttons (Teams, Matchup)
 - [x] Add awesome NHL.jpg to frame
 - [x] Add multiple frames
 - [ ] Version number
-- [/] Teams section
-- [/] Random matchup section
+- [/] Hall of Fame section
+- [x] Random matchup section
 - [x] Re-work repository
 - [x] Main application to class
 - [/] Fix README.MD
@@ -22,4 +22,4 @@
 - [ ] Tests
 - [ ] Dropdown to another frames also
 - [x] About section
-- [ ] Sounds (NHL 94 theme)
+- [x] Sounds (NHL 94 theme)
