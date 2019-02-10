@@ -14,8 +14,8 @@
 - [x] Random matchup section
 - [x] Re-work repository
 - [x] Main application to class
-- [/] Fix README.MD
-- [ ] Fix README.MD to README.rst
+- [/] Fix README
+- [x] Fix README.MD to README.rst
 - [x] Folder for images and others
 - [x] LICENCSE ?
 - [ ] Error handling
