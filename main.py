@@ -5,8 +5,6 @@ import sys, os
 import random
 from winsound import PlaySound, SND_FILENAME, SND_LOOP, SND_ASYNC
 
-
-
 class MainWindow(tk.Frame):
 
     def __init__(self, parent, *args, **kwargs):
@@ -16,7 +14,7 @@ class MainWindow(tk.Frame):
         self.frame = tk.Frame(self.parent)
         self.button1 = tk.Button(self.frame, text = 'Random Teams', width = 70, command = self.new_window)
         self.button1.pack(side="bottom", fill="both", expand="yes")
-        self.button_2 = tk.Button(self.frame, text = 'Hall of Fame', width = 70, command = self.team_window)
+        self.button_2 = tk.Button(self.frame, text = 'Hall of Fame', width = 70, command = self.HallOfFame)
         self.button_2.pack(side="bottom", fill="both", expand="yes")
         self.frame.pack(side="bottom", fill="both")
         # Menu Bar
@@ -26,7 +24,8 @@ class MainWindow(tk.Frame):
         root.title("NHL 94")
         root.option_add('*font', ('verdana', 16, 'bold'))
         root.geometry("700x450")
-        root. resizable(0, 0) # Don't allow resizing
+        # Don't allow resizing
+        root. resizable(0, 0) 
         # NHL-Image
         load = Image.open("project/images/nhl_intro.jpg")
         render = ImageTk.PhotoImage(load)
@@ -38,17 +37,17 @@ class MainWindow(tk.Frame):
         # SND_ASYNC = 'Return immediately, allowing sounds to play asynchronously
         # SND_LOOP = 'Play the sound repeatedly.
         # Documentation: https://docs.python.org/2/library/winsound.html
-        themeSong = lambda: PlaySound('project/sound/theme.wav', SND_FILENAME | SND_ASYNC | SND_LOOP)
-        themeSong()
+        ''' themeSong = lambda: PlaySound('project/sound/theme.wav', SND_FILENAME | SND_ASYNC | SND_LOOP)
+        themeSong() '''
 
 
     def new_window(self):
         self.newWindow = tk.Toplevel(self.parent)
         self.main = random_team(self.newWindow)
 
-    def team_window(self):
+    def HallOfFame(self):
         self.teams = tk.Toplevel(self.parent)
-        self.main = team_window(self.teams)
+        self.main = HallOfFame(self.teams)
 
 
 class MenuBar(tk.Menu):
@@ -56,50 +55,49 @@ class MenuBar(tk.Menu):
         tk.Menu.__init__(self, parent)
         fileMenu = tk.Menu(self, tearoff=False)
         self.add_cascade(label="File", menu=fileMenu)
-        fileMenu.add_command(label="About", command = lambda: self.popupmsg("NHL94 Tkinter project is made by ponkape. \
-        All feedback and development ideas are welcome!"))
+        fileMenu.add_command(label="About", command = lambda: self.about("NHL94-project by @ponkape !"))
         fileMenu.add_separator()
         fileMenu.add_command(label="Exit", command=self.exit_program)
+
 
     def exit_program(self):
             sys.exit(0)
 
-    def popupmsg(self, msg):
+    def about(self, msg):
         popup = tk.Tk()
         popup.wm_title("About")
         label = tk.Label(popup, text=msg)
-        label.pack(fill="x", pady=10)
+        label.pack(fill="x", pady=15, padx=25)
 
 
 
-class team_window(tk.Frame):
+class HallOfFame(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
-        # Frame configurations
-        parent.minsize(width=999, height=500)
-        parent.title("NHL Teams")
-
-        ### Teams-section. Explanation for next solution for showing team logos
-        ### http://effbot.org/pyfaq/why-do-my-tkinter-images-not-appear.htm
-        ###
-        ### "The problem is that the Tkinter/Tk interface doesn’t handle references to Image objects properly; the Tk widget will hold a reference to the internal object, but Tkinter does not.
-        ### When Python’s garbage collector discards the Tkinter object, Tkinter tells Tk to release the image.
-        ### But since the image is in use by a widget, Tk doesn’t destroy it. Not completely.
-        ### It just blanks the image, making it completely transparent…"
-        ###
-        ###
-
-        text_team = tk.Label(parent, text="HALL OF FAME", fg="orange", anchor="n")
+        # Frame configurations 
+        parent.minsize(width=999, height=700)
+        parent.title("NHL 94 Hall of Fame")
+        # Title / cup photo settings
+        text_team = tk.Label(parent, text="NHL 94 Hall of Fame", fg="black", anchor="n")
         text_team.pack()
-
-        load = Image.open("project/images/east.jpg")
+        load = Image.open("project/images/nhl-cup.jpg")
         render = ImageTk.PhotoImage(load)
-        home_img = tk.Label(parent, image=render, text="Allstar East", compound=tk.TOP)
+        home_img = tk.Label(parent, image=render, text="", compound=tk.TOP)
         home_img.image = render
-        home_img.pack(pady=10)
+        home_img.pack(pady=15)
+        champions_title = tk.Label(parent, text="Champions of the Kaarlenkatu", fg="GREEN", anchor="n")
+        champions_title.config(font=("Helvetica", 30))
+        champions_title.pack(pady=10)
+        # Champions
+        champion = tk.Label(parent, text="AK - Season 1 - 2016 - Edmonton Oilers\nAK - Season 2 - 2016 - Montreal Canadiens\nAK - Season 3 - 2016 - Boston Bruins\nJ    - Season 4 - 2017 - Philadelphia Flyers\nJ    - Season 5 - 2017 - New York Rangers\nJ    - Season 6 - 2017 - Montreal Canadiens\nJ    - Season 7 - 2017 - Los Angeles Kings\nAK - Season 8 - 2017-2018 - Washington Capitals\nAK - Season 9 - 2018 - New Jersey Devils\nJ    - Season 10 - 2018 - Calgary Flames\nJ    - Season 11 - 2018-2019 - Washington Capitals\n\nS   - Hönzäment 1 - 2018 - Detroid Red Wings\nAK - Hönzäment 2 - 2018 - New Jersey Devils",
+             fg="GREEN", justify='left')
+        champion.pack()
 
+#
+# Randomize feature starts here
+#
 
-
+# All team data stored here
 class Team():
     """
     All Team data
@@ -128,7 +126,7 @@ class TeamWidget(tk.Label):
         self._team = None
         super().__init__(parent, Image=None, text=team.name,
                          compound="bottom",
-                         fg="yellow",
+                         fg="black",
                          font=("Helvetica", 18)
                          )
         self.pack(side=side)
