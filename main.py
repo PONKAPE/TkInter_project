@@ -1,9 +1,19 @@
+"""NHL 94 project for learning TkInter and Python by ponkape"""
+
 #!/usr/bin/python3
-import tkinter as tk
+try:
+    import Tkinter as tk
+except:
+    import tkinter as tk
 from PIL import ImageTk, Image
 import sys, os
 import random
 from winsound import PlaySound, SND_FILENAME, SND_LOOP, SND_ASYNC
+
+
+__author__ = "ponkape"
+__version__ = "1.0.0"
+
 
 class MainWindow(tk.Frame):
 
@@ -12,7 +22,7 @@ class MainWindow(tk.Frame):
         # Buttons
         self.parent = parent
         self.frame = tk.Frame(self.parent)
-        self.button1 = tk.Button(self.frame, text = 'Random Teams', width = 70, command = self.new_window)
+        self.button1 = tk.Button(self.frame, text = 'Pick random teams', width = 70, command = self.new_window)
         self.button1.pack(side="bottom", fill="both", expand="yes")
         self.button_2 = tk.Button(self.frame, text = 'Hall of Fame', width = 70, command = self.HallOfFame)
         self.button_2.pack(side="bottom", fill="both", expand="yes")
@@ -37,8 +47,8 @@ class MainWindow(tk.Frame):
         # SND_ASYNC = 'Return immediately, allowing sounds to play asynchronously
         # SND_LOOP = 'Play the sound repeatedly.
         # Documentation: https://docs.python.org/2/library/winsound.html
-        ''' themeSong = lambda: PlaySound('project/sound/theme.wav', SND_FILENAME | SND_ASYNC | SND_LOOP)
-        themeSong() '''
+        themeSong = lambda: PlaySound('project/sound/theme.wav', SND_FILENAME | SND_ASYNC | SND_LOOP)
+        themeSong()
 
 
     def new_window(self):
@@ -69,7 +79,9 @@ class MenuBar(tk.Menu):
         label = tk.Label(popup, text=msg)
         label.pack(fill="x", pady=15, padx=25)
 
-
+#####
+## 
+#####
 
 class HallOfFame(tk.Frame):
     def __init__(self, parent):
@@ -93,42 +105,28 @@ class HallOfFame(tk.Frame):
              fg="GREEN", justify='left')
         champion.pack()
 
-#
-# Randomize feature starts here
-#
+#####
+## Randomize-feature starts here
+#####
 
 # All team data stored here
 class Team():
-    """
-    All Team data
-    """
     def __init__(self, name, img_filename):
         self.name = name
         self.img_filename = img_filename
 
     @property
     def filepath(self):
-        """
-        :return: The filepath of this Team Logo image file.
-        """
         _map = {'New York Islanders': 'ny_islanders.gif','Montreal Canadiens': 'montreal.gif','Los Angeles Kings': 'los_angeles.gif','Hartford Whalers': 'hartford.gif','Calgary Flames': 'calgary.gif','Buffalo Sabres': 'buffalo.gif','Anaheim Mighty Ducks': 'anaheim.gif','Boston Bruins': 'Boston.gif','Chicago Blackhawks': 'chicago.gif', 'New York Rangers': 'ny_rangers.gif',
                 'All-Stars West': 'west.gif','Pittsburgh Penguins': 'pittsburgh.gif','Ottawa Senators': 'ottawa.gif','Florida Panthers': 'florida.gif','Edmonton Oilers': 'edmonton.gif','All-Stars East': 'east.gif','New Jersey Devils': 'devils.gif','Detroit Red Wings': 'detroit.gif','Dallas Stars': 'dallas.gif','Philadelphia Flyers': 'philadelphia.gif', 'Toronto Maple Leafs': 'toronto.gif',
                 'Vancouver Canucks': 'vancouver.gif','Winnipeg Jets': 'winnipeg.gif','Washington Capitals': 'washington.gif','Tampa Bay Lightning': 'tampa_bay.gif','St. Louis Blues': 'st_louis.gif','San Jose Sharks': 'sharks.gif','Quebec Nordiques': 'quebec.gif'}
         return os.path.join('project\images', _map[self.name])
 
+# Home & Visitor widget configurations
 class TeamWidget(tk.Label):
     def __init__(self, parent, team, side):
-        """
-        :param parent: The Parent where this Widget depends on
-        :param team: A class Team object
-        :p aram side: How to pack this Label to (left|right)
-        """
         self._team = None
-        super().__init__(parent, Image=None, text=team.name,
-                         compound="bottom",
-                         fg="black",
-                         font=("Helvetica", 18)
-                         )
+        super().__init__(parent, Image=None, text=team.name, compound="bottom", fg="black", font=("Helvetica", 24))
         self.pack(side=side)
 
     @property
@@ -140,12 +138,9 @@ class TeamWidget(tk.Label):
 
     @team.setter
     def team(self, team):
-
         # Setting a class Team object, read its Logo Image and
         # Configure the Lable Widget with text and image
-
         self._team = team
-        # IMPORTANT: Keep Image reference to not get garbage collected
         self.image = tk.PhotoImage(file=team.filepath)
         super().configure(text=team.name, image=self.image)
 
@@ -153,11 +148,11 @@ class random_team(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
         parent.minsize(width=888, height=500)
-        parent.title("RANDOMIZE")
+        parent.title("PICK RANDOM TEAMS")
         # TEXT
         text_1 = tk.Label(parent, text="VS", fg="red", anchor="center")
         text_1.place(relx=.5, rely=.5, anchor="center")
-        text_2 = tk.Label(parent, text="RANDOM GAME", fg="green", anchor="n")
+        text_2 = tk.Label(parent, text="PICK RANDOM TEAMS", fg="green", anchor="n", font=("Helvetica", 24))
         text_2.pack(side="top")
         # Button for randomize
         self.parent = parent
